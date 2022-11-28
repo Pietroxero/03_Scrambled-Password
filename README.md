@@ -48,4 +48,4 @@ More testing that was conducted within the google chrome dev tools and console t
 ## Deployed website
 [Website URL]: 
 
-(https://pietroxero.github.io/C03_pswrd_generator/)
+(https://pietroxero.github.io/03_Scrambled-Password/)
