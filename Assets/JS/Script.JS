@@ -5,9 +5,9 @@
 var generateBtn = document.querySelector("#generate");
 
 //Password object.
-var pwdCriteria = {
+var pwdCri = {
     //Property for length of password
-    pwdLength: 0,
+    pwdLen: 0,
 
     //arrays to hold lower/uppercase letters, numbers, special characters
     pwdLower: ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l",
@@ -40,16 +40,16 @@ generateBtn.addEventListener("click", writePassword);
 //this function is to actually generate the password and various conditions.
 function generatePassword() {
     //these variables are to obtain information from the user that are displayed in a series of prompts
-    var upperCase;
-    var lowerCase;
-    var specialChar;
-    var passwordLength = 0;
+    var upper;
+    var lower;
+    var specialChars;
+    var psswrdLength = 0;
     var numbers;
 //this var will be what holds the password that is generated and brought back from the call
-var result = "";
+var res = "";
 
-    passwordLength = 0;
-    pwdCriteria.pwdLength = 0;
-    result = "";
+    psswrdLength = 0;
+    pwdCri.pwdLen = 0;
+    res = "";
 
 }
