@@ -39,5 +39,17 @@ generateBtn.addEventListener("click", writePassword);
 
 //this function is to actually generate the password and various conditions.
 function generatePassword() {
-    
+    //these variables are to obtain information from the user that are displayed in a series of prompts
+    var upperCase;
+    var lowerCase;
+    var specialChar;
+    var passwordLength = 0;
+    var numbers;
+//this var will be what holds the password that is generated and brought back from the call
+var result = "";
+
+    passwordLength = 0;
+    pwdCriteria.pwdLength = 0;
+    result = "";
+
 }
