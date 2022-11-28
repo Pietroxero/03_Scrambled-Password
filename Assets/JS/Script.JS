@@ -119,7 +119,7 @@ var res = "";
             }
         }
         //returns the generated password back to the function that is being called
-        return result;
+        return res;
 
         // function prompts the user regarding for password criteria needed
         function showWindow() {
