@@ -76,7 +76,7 @@ var res = "";
 
                     //this keeps adding characters based on our criteria till the length is - to the length the user chose
                     while(pwdCri.pwdLen < psswrdLength) {
-                        if(upper === false && lower === false && specialChars === false) {
+                        if(upper === false && lower === false && specialChars === false && numbers === false) {
                             alert ("You gotta choose 1 upper, lower case letter a number and some special characters");
                             showWindow();
                         }
@@ -84,13 +84,13 @@ var res = "";
                             //in the event the user selects either uppercase, lowercase, special characters, or a number and there is room to add characters then
                             //randomly grabs uppercase, lowercase letters, special characters or numbers from the array(s) above and will add it to the end of our results, updating pwdLength by 1
                             if (upper === true && pwdCri.pwdLen <  psswrdLength){
-                                var up = pwdCri.pwdLen[Math.floor(Math.random()* 26)]
+                                var up = pwdCri.pwdLower[Math.floor(Math.random()* 26)]
                                 res = res + up;
                                 pwdCri.pwdLen++;
                             }
 
                             if (lower === true && pwdCri.pwdLen <  psswrdLength){
-                                var low = pwdCri.pwdLen[Math.floor(Math.random()* 26)]
+                                var low = pwdCri.pwdUpper[Math.floor(Math.random()* 26)]
                                 res = res + low;
                                 pwdCri.pwdLen++;
 
@@ -98,7 +98,7 @@ var res = "";
                             }
 
                             if (numbers === true && pwdCri.pwdLen <  psswrdLength){
-                                var nums = pwdCri.pwdLen[Math.floor(Math.random()* 10)]
+                                var nums = pwdCri.pwdNum[Math.floor(Math.random()* 10)]
                                 res = res + nums;
                                 pwdCri.pwdLen++;
 
@@ -106,7 +106,7 @@ var res = "";
                             }
 
                             if (specialChars === true && pwdCri.pwdLen <  psswrdLength){
-                                var spechar = pwdCri.pwdLen[Math.floor(Math.random()* 36)]
+                                var spechar = pwdCri.pwdChar[Math.floor(Math.random()* 36)]
                                 res = res + spechar;
                                 pwdCri.pwdLen++;
 
