@@ -25,11 +25,19 @@ var pwdCriteria = {
 // Write password to the #password input
 function writePassword() {
   var password = generatePassword();
+      // This var sets passwordText to the text area in the HTML that has the ID 'password'
+
   var passwordText = document.querySelector("#password");
 
+      //this updates the textArea with our new password
   passwordText.value = password;
 
 }
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
+
+//this function is to actually generate the password and various conditions.
+function generatePassword() {
+    
+}
