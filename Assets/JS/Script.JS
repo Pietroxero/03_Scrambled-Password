@@ -52,4 +52,29 @@ var res = "";
     pwdCri.pwdLen = 0;
     res = "";
 
+    while (psswrdLength < 8 || psswrdLength > 128) {
+        psswrdLength = prompt ("Choose how many characters you wanna use \n Its gotta be inbetween 1-128 characters.");
+                //if statement for when the user clicks cancel
+        if (psswrdLength === null) {
+            return "No password, womp womp";
+        }
+        else {
+            //this will check if our user picks a number
+            if(!isFinite(psswrdLength)) {
+                alert("Gotta pick a number!!");
+                return "womp womp womp";
+            }
+            else {
+                //this is the will be checking if the length meets our pwrd cri
+                if(psswrdLength < 8 || psswrdLength > 128) {
+                    alert("You scrambled password has to be within 8 -128 characters");
+                    return "womp womp womp"
+                }
+                else {
+                    //this is the call to our function to display within the prompts to the user for our criteria
+                    showWindow();
+                }
+            }
+        }
+    }
 }
