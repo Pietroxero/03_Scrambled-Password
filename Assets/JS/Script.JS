@@ -12,16 +12,16 @@ var pwCri = {
     //arrays to hold lower/uppercase letters, numbers, special characters
     
 
-    pwUpper: ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", 
-    "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z",],
+    pwUpper: ['A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J', 'K', 'L', 
+    'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T', 'U', 'V', 'W', 'X', 'Y', 'Z',],
 
-    pwLower: ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l",
-    "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z",],
+    pwLower: ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l',
+    'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z',],
 
-    pwNum: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
+    pwNum: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 21],
 
-    pwChar: [ '"', '!', '#', '$', '%', '&', "'", "(", ")", "*", "+", ",", "-", ".", "/", 
-    '\\', '=', ';', ':', '>', '<', '?', '@', "[", "]", "^", "_", "`", "{", "}", "|", "~",] 
+    pwChar: [ '"', '>', '#', '$', '%', '&', "'", "(", ")", "*", "{", ",", "-", ".", "/", 
+    '\\', '=', ';', ':', '!', '<', '?', ']', "[", "@", "^", "_", "`", "+", "}", "|",] 
 };
 
 // Write password to the #password input
@@ -87,7 +87,7 @@ var re = "";
                             //randomly grabs uppercase, lowercase letters, special characters or numbers from the array(s) above and will add it to the end of our results, updating pwdLength by 1
 
                             if (special === true && pwCri.pwLen <  pwLength){
-                                var spechar = pwCri.pwChar[Math.floor(Math.random()* 36)]
+                                var spechar = pwCri.pwChar[Math.floor(Math.random()* 35)]
                                 re = re + spechar;
                                 pwCri.pwLen++;
 
@@ -109,7 +109,7 @@ var re = "";
                             }
 
                             if (numbers === true && pwCri.pwLen <  pwLength){
-                                var nums = pwCri.pwNum[Math.floor(Math.random()* 10)]
+                                var nums = pwCri.pwNum[Math.floor(Math.random()* 21)]
                                 re = re + nums;
                                 pwCri.pwLen++;
 
@@ -129,11 +129,11 @@ var re = "";
         // function prompts the user regarding for password criteria needed
         function showMethewindow() {
             
-            lower = confirm("Are we using Lower case?");
-            upper = confirm("Are we using Upper case?");
+            lower = confirm("Password will be using Lower case letters");
+            upper = confirm("Password will be using Upper case letters");
             
-            special = confirm("Are we using special characters?");
-            numbers = confirm("Are we using numbers?");
+            special = confirm("Password will be using special characters");
+            numbers = confirm("Password will be using numbers");
         }
     }
 }
