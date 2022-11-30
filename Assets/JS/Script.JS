@@ -129,11 +129,11 @@ var re = "";
         // function prompts the user regarding for password criteria needed
         function showMethewindow() {
             
-            lower = prompt("Are we using Lower case?");
-            upper = prompt("Are we using Upper case?");
+            lower = confirm("Are we using Lower case?");
+            upper = confirm("Are we using Upper case?");
             
-            special = prompt("Are we using special characters?");
-            numbers = prompt("Are we using numbers?");
+            special = confirm("Are we using special characters?");
+            numbers = confirm("Are we using numbers?");
         }
     }
 }
