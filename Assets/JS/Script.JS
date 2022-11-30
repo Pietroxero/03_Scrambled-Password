@@ -5,20 +5,22 @@
 var generateBtn = document.querySelector("#generate");
 
 //Password object.
-var pwdCri = {
+var pwCri = {
     //Property for length of password
-    pwdLen: 0,
+    pwLen: 0,
 
     //arrays to hold lower/uppercase letters, numbers, special characters
-    pwdLower: ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l",
-    "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z",], 
+    
 
-    pwdUpper: ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", 
-    "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z",], 
+    pwUpper: ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J", "K", "L", 
+    "M", "N", "O", "P", "Q", "R", "S", "T", "U", "V", "W", "X", "Y", "Z",],
 
-    pwdNum: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9], 
+    pwLower: ["a", "b", "c", "d", "e", "f", "g", "h", "i", "j", "k", "l",
+    "m", "n", "o", "p", "q", "r", "s", "t", "u", "v", "w", "x", "y", "z",],
 
-    pwdChar: [ "!", '"', "#", "$", "%", "&", "'", "(", ")", "*", "+", ",", "-", ".", "/", 
+    pwNum: [0, 1, 2, 3, 4, 5, 6, 7, 8, 9],
+
+    pwChar: [ "!", '"', "#", "$", "%", "&", "'", "(", ")", "*", "+", ",", "-", ".", "/", 
     "\\", ":", ";", "<", ">", "=", "?", "@", "[", "]", "^", "_", "`", "{", "}", "|", "~",] 
 };
 
@@ -42,76 +44,79 @@ function generatePassword() {
     //these variables are to obtain information from the user that are displayed in a series of prompts
     var upper;
     var lower;
-    var specialChars;
-    var psswrdLength = 0;
+    var special;
+    var pwLength = 0;
     var numbers;
 //this var will be what holds the password that is generated and brought back from the call
-var res = "";
+var re = "";
 
-    psswrdLength = 0;
-    pwdCri.pwdLen = 0;
-    res = "";
+    pwLength = 0;
+    pwCri.pwLen = 0;
+    re = "";
 
-    while (psswrdLength < 8 || psswrdLength > 128) {
-        psswrdLength = prompt ("Choose how many characters you wanna use \n Its gotta be inbetween 1-128 characters.");
+    while (pwLength < 8 || pwLength > 128) {
+        pwLength = prompt ("Choose how many characters you wanna use \n Its gotta be inbetween 1-128 characters.");
                 //if statement for when the user clicks cancel
-        if (psswrdLength === null) {
+        if (pwLength === null) {
             return "No password, womp womp";
         }
         else {
             //this will check if our user picks a number
-            if(!isFinite(psswrdLength)) {
+            if(!isFinite(pwLength)) {
                 alert("Gotta pick a number!!");
                 return "womp womp womp";
             }
             else {
                 //this is the will be checking if the length meets our pwrd cri
-                if(psswrdLength < 8 || psswrdLength > 128) {
+                if(pwLength < 8 || pwLength > 128) {
                     alert("You scrambled password has to be within 8 -128 characters");
                     return "womp womp womp"
                 }
                 else {
                     //this is the call to our function to display within the prompts to the user for our criteria
-                    showWindow();
+                    showMethewindow();
 
                     //this keeps adding characters based on our criteria till the length is - to the length the user chose
-                    while(pwdCri.pwdLen < psswrdLength) {
-                        if(upper === false && lower === false && specialChars === false && numbers === false) {
+                    while(pwCri.pwLen < pwLength) {
+                        if(upper === false && lower === false && special === false && numbers === false) {
                             alert ("You gotta choose 1 upper, lower case letter a number and some special characters");
-                            showWindow();
+                            showMethewindow();
                         }
                         else {
                             //in the event the user selects either uppercase, lowercase, special characters, or a number and there is room to add characters then
                             //randomly grabs uppercase, lowercase letters, special characters or numbers from the array(s) above and will add it to the end of our results, updating pwdLength by 1
-                            if (upper === true && pwdCri.pwdLen <  psswrdLength){
-                                var up = pwdCri.pwdLower[Math.floor(Math.random()* 26)]
-                                res = res + up;
-                                pwdCri.pwdLen++;
-                            }
 
-                            if (lower === true && pwdCri.pwdLen <  psswrdLength){
-                                var low = pwdCri.pwdUpper[Math.floor(Math.random()* 26)]
-                                res = res + low;
-                                pwdCri.pwdLen++;
+                            if (special === true && pwCri.pwLen <  pwLength){
+                                var spechar = pwCri.pwChar[Math.floor(Math.random()* 36)]
+                                re = re + spechar;
+                                pwCri.pwLen++;
 
 
                             }
 
-                            if (numbers === true && pwdCri.pwdLen <  psswrdLength){
-                                var nums = pwdCri.pwdNum[Math.floor(Math.random()* 10)]
-                                res = res + nums;
-                                pwdCri.pwdLen++;
+                            if (upper === true && pwCri.pwLen <  pwLength){
+                                var up = pwCri.pwLower[Math.floor(Math.random()* 26)]
+                                re= re + up;
+                                pwCri.pwLen++;
+                            }
+
+                            if (lower === true && pwCri.pwLen <  pwLength){
+                                var low = pwCri.pwUpper[Math.floor(Math.random()* 26)]
+                                re = re + low;
+                                pwCri.pwLen++;
 
 
                             }
 
-                            if (specialChars === true && pwdCri.pwdLen <  psswrdLength){
-                                var spechar = pwdCri.pwdChar[Math.floor(Math.random()* 36)]
-                                res = res + spechar;
-                                pwdCri.pwdLen++;
+                            if (numbers === true && pwCri.pwLen <  pwLength){
+                                var nums = pwCri.pwNum[Math.floor(Math.random()* 10)]
+                                re = re + nums;
+                                pwCri.pwLen++;
 
 
                             }
+
+                            
 
                         }
                     }
@@ -119,14 +124,16 @@ var res = "";
             }
         }
         //returns the generated password back to the function that is being called
-        return res;
+        return re;
 
         // function prompts the user regarding for password criteria needed
-        function showWindow() {
-            upper = confirm("Do you want to use Upper case letters?");
-            lower = confirm("Do you want to use Lower case letters?");
-            numbers = confirm("Do you want to use any numbers?");
-            specialChars = confirm("Do you want to use any special characters?");
+        function showMethewindow() {
+            
+            lower = confirm("Are we using Lower case?");
+            upper = confirm("Are we using Upper case?");
+            
+            special = confirm("Are we using special characters?");
+            numbers = confirm("Are we using numbers?");
         }
     }
 }
